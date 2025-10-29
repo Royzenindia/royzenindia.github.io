@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#cfcfcf" />
+  <title>Royzen Private Limited — Strategic Corporate House</title>
+  <meta name="description" content="Royzen Private Limited — governance, foresight and institutional financial architecture." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --silver-dark:#b0b6bb;
+      --silver-mid:#c9ced2;
+      --silver-light:#e9ebec;
+      --deep-blue:#002e6e;
+      --soft-white:#ffffff;
+      --gold:#C9A35B;
+      --panel: rgba(255,255,255,0.96);
+      --glass: rgba(255,255,255,0.04);
+      --radius:12px;
+      --sheen-blur:3px;
+      --sheen-opacity:0.35;
+      --maxw:1200px;
+      --perspective:900px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;color:var(--deep-blue);background:var(--soft-white);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+    /* === Light Executive Silver Brushed Metal Background === */
+    .bg-root{
+      position:fixed;inset:0;z-index:0;pointer-events:none;
+      background:
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, rgba(0,0,0,0.02) 2px),
+        linear-gradient(180deg, var(--silver-dark) 0%, var(--silver-mid) 45%, var(--silver-light) 85%, #ffffff 100%);
+      background-blend-mode:overlay;
+      filter:none;
+    }
+
+    /* sheen */
+    .sheen{
+      position:fixed;inset:0;z-index:1;pointer-events:none;mix-blend-mode:screen;opacity:var(--sheen-opacity);
+      background:linear-gradient(160deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.06) 100%);
+      filter:blur(var(--sheen-blur));
+      animation:moveSheen 22s linear infinite;
+    }
+    @keyframes moveSheen{
+      0%{transform:translateX(-30%) rotate(-8deg)}
+      50%{transform:translateX(30%) rotate(-8deg)}
+      100%{transform:translateX(-30%) rotate(-8deg)}
+    }
+
+    .vignette{position:fixed;inset:0;z-index:2;pointer-events:none;background:radial-gradient(1200px 600px at 50% 40%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.01) 45%, rgba(0,0,0,0.04) 100%);opacity:0.22}
+
+    /* stage */
+    .stage{perspective:var(--perspective);position:relative;z-index:3;transform-style:preserve-3d}
+    .container{position:relative;max-width:var(--maxw);margin:56px auto;padding:28px;transform-style:preserve-3d;z-index:4}
+
+    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo-img{height:60px;width:auto;filter:drop-shadow(0 6px 18px rgba(0,0,0,0.18));border-radius:6px}
+    .brand-text .name{font-weight:700;font-size:15px;color:var(--soft-white);text-shadow:0 2px 6px rgba(0,0,0,0.18)}
+    .brand-text .tag{font-size:12px;color:var(--gold);margin-top:2px}
+
+    nav{display:flex;gap:18px;font-size:14px;color:rgba(255,255,255,0.95)}
+    nav a{color:rgba(255,255,255,0.95);text-decoration:none;padding:6px 8px;border-radius:8px;transition:background .18s,color .18s}
+    nav a:hover{background:rgba(255,255,255,0.06);color:var(--deep-blue)}
+
+    /* hero */
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center}
+    .hero-panel{background:var(--panel);border-radius:14px;padding:44px;box-shadow:0 18px 40px rgba(2,6,23,0.06);transition:transform 260ms ease,box-shadow 260ms ease;transform-origin:center;will-change:transform}
+    h1{font-family:'Playfair Display',serif;font-size:46px;margin:0 0 10px;color:var(--deep-blue);line-height:1.02}
+    .sub{color:#475569;margin:0 0 20px;max-width:720px;font-size:16px}
+    .cta-row{margin-top:18px}
+    .cta{display:inline-block;padding:12px 18px;border-radius:10px;font-weight:600}
+    .cta-primary{background:linear-gradient(90deg,var(--deep-blue),#003f88);color:white;box-shadow:0 10px 30px rgba(0,46,110,0.08)}
+    .cta-primary:hover{box-shadow:0 20px 50px rgba(0,46,110,0.12);transform:translateY(-2px)}
+    .cta-outline{border:1px solid rgba(11,19,32,0.06);color:var(--deep-blue);background:transparent}
+
+    .hero-side{background:var(--panel);padding:22px;border-radius:12px;box-shadow:0 8px 24px rgba(11,19,32,0.04);transform-style:preserve-3d}
+    .hero-side h4{margin:0 0 10px;color:var(--deep-blue)}
+    .kpi .item{background:transparent;padding:10px;border-radius:10px;border-left:4px solid rgba(0,46,110,0.06)}
+
+    /* sections */
+    .section{margin-top:28px;padding:28px;background:transparent;border-radius:12px;transform-style:preserve-3d}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:16px}
+    .card{background:var(--panel);padding:22px;border-radius:12px;box-shadow:0 10px 30px rgba(11,19,32,0.04);transition:transform 260ms ease,box-shadow 260ms ease;will-change:transform;transform-origin:center}
+    .card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 28px 80px rgba(11,19,32,0.10)}
+    .section-title{font-size:15px;color:var(--deep-blue);margin-bottom:8px;font-weight:700}
+    .lead{color:#475569;line-height:1.7;font-size:15px}
+
+    .metric-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:14px}
+    .metric-card{background:linear-gradient(180deg,rgba(255,255,255,0.98),rgba(250,250,250,0.98));padding:14px;border-radius:10px;text-align:center;border:1px solid rgba(11,19,32,0.03)}
+
+    footer{margin-top:34px;padding:24px;text-align:center;color:#64748b;font-size:13px;border-top:1px solid rgba(11,19,32,0.04);background:transparent}
+
+    /* pointer interactions - reduced perspective to avoid subpixel blur */
+    .stage{transform-style:preserve-3d;transition:transform 220ms ease}
+    @media (prefers-reduced-motion: reduce){.sheen{animation:none}}
+
+    @media(max-width:1100px){.hero{grid-template-columns:1fr 360px}} 
+    @media(max-width:980px){.hero{grid-template-columns:1fr}.nav-links{display:none}.container{padding:20px}} 
+    @media(max-width:720px){.grid-3{grid-template-columns:1fr}.hero-side{order:2}}
+  </style>
+</head>
+<body>
+  <div class="bg-root" aria-hidden="true"></div>
+  <div class="sheen" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <div class="stage" id="stage">
+    <div class="container" id="container" role="main">
+      <header>
+        <div class="brand">
+          <img src="ROYZEN_logo.png" alt="Royzen logo" class="logo-img" />
+          <div class="brand-text">
+            <div class="name">ROYZEN PRIVATE LIMITED</div>
+            <div class="tag">Strategic Corporate House</div>
+          </div>
+        </div>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#about">Overview</a>
+          <a href="#vision">Vision</a>
+          <a href="#mission">Mission</a>
+          <a href="#verticals">Strategic Functions</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <section class="hero" aria-label="Hero" data-depth="0.02">
+        <div class="hero-panel" id="heroPanel">
+          <h1>Royzen Private Limited</h1>
+          <p class="sub">A modern, globally aligned Indian corporate house built on governance, precision, and long-term value architecture. We integrate brand stewardship, capital systems and financial operations within a single institutional structure to deliver sustained cross-growth.</p>
+          <div class="cta-row">
+            <a class="cta cta-primary" href="mailto:info@royzen.store">Contact Corporate</a>
+            <a class="cta cta-outline" href="#verticals">Strategic Functions</a>
+          </div>
+        </div>
+
+      <aside class="hero-side" aria-label="Quick facts" id="heroCards" data-depth="0.04">
+        <h4>Corporate Signifier</h4>
+        <div class="kpi">
+          <div class="item"><strong>Institutional Identity</strong><div class="muted-small">Professional management, financial discipline and brand stewardship</div></div>
+          <div class="item"><strong>Governance</strong><div class="muted-small">Board-led oversight, compliance-first operations</div></div>
+          <div class="item"><strong>Scale Intention</strong><div class="muted-small">Multi-vertical growth with export readiness</div></div>
+        </div>
+      </aside>
+      </section>
+
+      <section id="about" class="section" aria-labelledby="about-title" data-depth="0.06">
+        <div class="card" tabindex="0">
+          <div id="about-title" class="section-title">Corporate Overview</div>
+          <p class="lead">Royzen Private Limited is an Indian private limited company operating across diversified sectors under a unified strategic and governance framework. The company functions as a central corporate entity, integrating brand development, capital systems, and financial operations within a single institutional structure. Its foundation rests on governance, precision, and long-term value architecture — representing a modern, globally aligned Indian corporate house built on discipline, foresight, and sustained performance.</p>
+        </div>
+      </section>
+
+      <section id="vision" class="section" aria-labelledby="vision-title" data-depth="0.08">
+        <div class="card" tabindex="0">
+          <div id="vision-title" class="section-title">Vision</div>
+          <p class="lead">To build Royzen into a globally aligned, enduring corporate house through disciplined governance, strategic foresight, and financial architecture.</p>
+        </div>
+      </section>
+
+      <section id="mission" class="section" aria-labelledby="mission-title" data-depth="0.10">
+        <div class="card" tabindex="0">
+          <div id="mission-title" class="section-title">Mission</div>
+          <p class="lead">To develop an integrated ecosystem of next-generation consumer and enterprise brands, unified by shared data, design, and distribution architectures that deliver sustainable cross-growth.</p>
+        </div>
+      </section>
+
+      <section id="verticals" class="section" aria-labelledby="verticals-title" data-depth="0.12">
+        <div class="card">
+          <div id="verticals-title" class="section-title">Strategic Functions</div>
+          <p class="lead">Royzen's central corporate architecture enables specialist vertical teams to operate with shared governance, data, and compliance frameworks.</p>
+          <div class="grid-3" role="list">
+            <div class="card" role="listitem">
+              <h4>R&D & Innovation</h4>
+              <p>Centralized research and product engineering that fuels IP-led development, optimized for scalable manufacturing and export compliance.</p>
+            </div>
+            <div class="card" role="listitem">
+              <h4>Brand Stewardship</h4>
+              <p>Professional brand management, premium positioning and portfolio governance to maximise lifetime value across markets.</p>
+            </div>
+            <div class="card" role="listitem">
+              <h4>Financial Architecture</h4>
+              <p>Capital systems, treasury governance, and institutional-grade reporting built to support strategic investments and partnerships.</p>
+            </div>
+            <div class="card" role="listitem">
+              <h4>Export Ready</h4>
+              <p>Regulatory & quality frameworks</p>
+            </div>
+            <div class="card" role="listitem">
+              <h4>IP Focus</h4>
+              <p>Patentable formulations & processes</p>
+            </div>
+            <div class="card" role="listitem">
+              <h4>Institutional Growth</h4>
+              <p>Governance-driven scale</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section" aria-labelledby="contact-title" data-depth="0.14">
+        <div class="card" tabindex="0">
+          <div id="contact-title" class="section-title">Contact & Corporate Desk</div>
+          <p class="lead">For governance, investor relations, or strategic partnerships please contact our corporate team:</p>
+          <p class="lead"><strong>Email:</strong> <a href="mailto:info@royzen.store">info@royzen.store</a><br><strong>CIN:</strong> U20239KL2025PTC096858<br><strong>Registered Office:</strong> India</p>
+        </div>
+      </section>
+
+      <footer>
+        © 2025 Royzen Private Limited. All rights reserved. | CIN: U20239KL2025PTC096858
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const stage = document.getElementById('stage');
+      const container = document.getElementById('container');
+      const sections = Array.from(document.querySelectorAll('[data-depth]'));
+      const shapes = {sheen: document.querySelector('.sheen')};
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // pointer tilt with reduced perspective for sharpness
+      if(!prefersReduced){
+        window.addEventListener('pointermove', (e) => {
+          const cx = window.innerWidth / 2;
+          const cy = window.innerHeight / 2;
+          const dx = (e.clientX - cx) / cx;
+          const dy = (e.clientY - cy) / cy;
+          const rotY = dx * 3; // milder rotation
+          const rotX = -dy * 2;
+          stage.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+        });
+        window.addEventListener('pointerleave', ()=>{ stage.style.transform = ''; });
+      }
+
+      // smoother depth using scale + translate (no translateZ to avoid sub-pixel blur)
+      let ticking = false;
+      window.addEventListener('scroll', function(){
+        if(!ticking){
+          window.requestAnimationFrame(()=>{
+            const sc = window.scrollY;
+            const depthScale = 1 + Math.min(0.05, sc/6000);
+            container.style.transform = `scale(${depthScale})`;
+            sections.forEach(sec => {
+              const depth = parseFloat(sec.getAttribute('data-depth')) || 0;
+              const rect = sec.getBoundingClientRect();
+              const offset = (rect.top - window.innerHeight/2) / window.innerHeight;
+              const translateY = Math.round(depth * -20 * -offset);
+              sec.style.transform = `translateY(${translateY}px)`;
+            });
+            if(shapes.sheen) shapes.sheen.style.transform = `translateX(${sc * 0.02}px)`;
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, {passive:true});
+    })();
+  </script>
+</body>
+</html>
